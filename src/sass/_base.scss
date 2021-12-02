@@ -42,22 +42,22 @@ $val in $colors {
   }
 }
 
-@each $var in$numbers {
-  .grid-col-#{$var} {
+@each $val in$numbers {
+  .grid-col-#{$val} {
     grid-template-columns: repeat($val, 1fr);
   }
 }
 
-@each $var in$numbers {
-  .grid-col-#{$var} {
+@each $val in$numbers {
+  .grid-col-#{$val} {
     @include mobile {
       grid-template-columns: repeat($val, 1fr);
     }
   }
 }
 
-@each $var in$numbers {
-  .grid-col-#{$var} {
+@each $val in$numbers {
+  .grid-col-#{$val} {
     @include tablet {
       grid-template-columns: repeat($val, 1fr);
     }
