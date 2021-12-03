@@ -71,12 +71,12 @@ const Header = () => {
 
 						{
               mainNav.map((item, idx) => (
-							  <div className={`
+							  <div key={idx} className={`
                   header__menu__item
                   header__menu__left__item 
                   ${idx === activeNav && 'active'}`  
                 }
-                onclick={menuToggle}
+                onClick={menuToggle}
                 >
                   <Link to={item.path}>
                     <span>{item.display}</span>
