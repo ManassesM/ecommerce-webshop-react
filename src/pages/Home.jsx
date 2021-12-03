@@ -1,10 +1,14 @@
 import React from 'react'
 
+import Helmet from '../components/helmet'
+
 const Home = () => {
   return (
-    <div>
-      Home
-    </div>
+    <Helmet title='Home'>
+      {/* hero slider */}
+      
+      {/* end hero slider */}
+    </Helmet>
   )
 }
 
