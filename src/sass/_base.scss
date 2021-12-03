@@ -92,3 +92,7 @@ $val in $colors {
     margin-top: calc(#{$header-tablet-height} + 20px);
   }
 }
+
+.grid {
+  display: grid;
+}
