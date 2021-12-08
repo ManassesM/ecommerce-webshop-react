@@ -2,6 +2,7 @@ import React from 'react'
 
 import Helmet from '../components/Helmet'
 import HeroSlider from '../components/HeroSlider'
+import Section, { SectionTitle, SectionBody } from '../components/Section'
 
 import heroSliderData from '../assets/fake-data/hero-slider'
 
@@ -16,6 +17,12 @@ const Home = () => {
 				timeOut={5000}
 			/>
 			{/* end hero slider */}
+      {/* policy section */}
+      <Section>
+        <SectionBody>
+          
+        </SectionBody>
+      </Section>
 		</Helmet>
 	)
 }

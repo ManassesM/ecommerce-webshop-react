@@ -24,7 +24,7 @@ const footerAboutLinks = [
 		path: '/about',
 	},
 	{
-		display: 'Where We Are',
+		display: 'Where We Are Located',
 		path: '/about',
 	},
 ]
