@@ -8,6 +8,7 @@ import Grid from '../components/Grid'
 
 import heroSliderData from '../assets/fake-data/hero-slider'
 import policy from '../assets/fake-data/policy'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
 	return (
@@ -32,13 +33,15 @@ const Home = () => {
             gap={20}
           >
             {
-              policy.map((item, idx) => 
-                <PolicyCard 
-                  key={idx}
-                  name={item.name} 
-                  description={item.description} 
-                  icon={item.icon}
-                />
+              policy.map((item, idx) =>
+                <Link to='/policy'> 
+                  <PolicyCard 
+                    key={idx}
+                    name={item.name} 
+                    description={item.description} 
+                    icon={item.icon}
+                  />
+                </Link>
               )        
             }
           </Grid>
