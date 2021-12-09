@@ -10,6 +10,7 @@ import ProductCard from '../components/ProductCard'
 import heroSliderData from '../assets/fake-data/hero-slider'
 import policy from '../assets/fake-data/policy'
 import productData from '../assets/fake-data/products'
+import banner from '../assets/images/banner.png'
 
 import { Link } from 'react-router-dom'
 
@@ -87,6 +88,86 @@ const Home = () => {
       </Section>
       {/* end selling section */}
 
+
+      {/* new arrival section */}
+      <Section>
+        
+        <SectionTitle>
+          New Products 
+        </SectionTitle>
+          
+        <SectionBody>
+        <Grid
+            col={4}
+            mdCol={2}
+            smCol={1}
+            gap={20}
+          >
+            
+            {
+              productData.getProducts(8).map((item, idx) => (
+                <ProductCard
+                  key={idx}
+                  img01={item.image01}
+                  img02={item.image02}
+                  name={item.title}
+                  price={Number(item.price)}
+                  slug={item.slug}
+
+                />
+              ))
+            }
+
+          </Grid>
+        </SectionBody>
+
+      </Section>
+      {/* end arrival section */}
+
+      {/* banner */}
+      <Section>
+        <SectionBody>
+          <Link to='/catalog'>
+            <img src={banner} alt="banner" />
+          </Link>
+        </SectionBody>
+      </Section>
+      {/* end banner */}
+
+      {/* popular products section */}
+      <Section>
+        
+        <SectionTitle>
+          Popular Products 
+        </SectionTitle>
+          
+        <SectionBody>
+        <Grid
+            col={4}
+            mdCol={2}
+            smCol={1}
+            gap={20}
+          >
+            
+            {
+              productData.getProducts(12).map((item, idx) => (
+                <ProductCard
+                  key={idx}
+                  img01={item.image01}
+                  img02={item.image02}
+                  name={item.title}
+                  price={Number(item.price)}
+                  slug={item.slug}
+
+                />
+              ))
+            }
+
+          </Grid>
+        </SectionBody>
+
+      </Section>
+      {/* end popular products section */}
 		</Helmet>
 	)
 }
