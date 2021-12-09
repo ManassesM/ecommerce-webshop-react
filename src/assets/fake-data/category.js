@@ -1,14 +1,14 @@
 const category = [
     {
-        display: "Áo thun",
+        display: 'T-Shirt',
         categorySlug: "ao-thun"
     },
     {
-        display: "Áo somi",
+        display: "Shirt",
         categorySlug: "ao-somi"
     },
     {
-        display: "Quần jean",
+        display: "Jeans",
         categorySlug: "quan-jean"
     }
 ]
