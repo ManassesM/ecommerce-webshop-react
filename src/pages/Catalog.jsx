@@ -1,15 +1,14 @@
 import React, { useCallback, useEffect, useState } from 'react'
 
-import Helmet from '../components/Helmet'
-import Grid from '../components/Grid'
-import ProductCard from '../components/ProductCard'
-import CheckBox from '../components/CheckBox'
-
 import productData from '../assets/fake-data/products'
 import category from '../assets/fake-data/category'
 import colors from '../assets/fake-data/product-color'
 import size from '../assets/fake-data/product-size'
+
+import Helmet from '../components/Helmet'
+import CheckBox from '../components/CheckBox'
 import Button from '../components/Button'
+import InfinityList from '../components/InfinityList'
 
 const Catalog = () => {
 	const initFilter = {
@@ -28,16 +27,18 @@ const Catalog = () => {
 		if (checked) {
 			switch (type) {
 				case 'CATEGORY':
-					setFilter({
-						...filter,
-						category: [...filter.category, item.categorySlug],
-					})
+					const newCategory = filter.category.filter(
+						(e) => e !== item.categorySlug
+					)
+					setFilter({ ...filter, category: newCategory })
 					break
 				case 'COLOR':
-					setFilter({ ...filter, color: [...filter.color, item.color] })
+					const newColor = filter.color.filter((e) => e !== item.color)
+					setFilter({ ...filter, color: newColor })
 					break
 				case 'SIZE':
-					setFilter({ ...filter, size: [...filter.size, item.size] })
+					const newSize = filter.size.filter((e) => e !== item.size)
+					setFilter({ ...filter, size: newSize })
 					break
 				default:
 			}
@@ -120,7 +121,7 @@ const Catalog = () => {
 						</div>
 					</div>
 
-					{/* colors */}
+					{/* color */}
 					<div className='catalog__filter__widget'>
 						<div className='catalog__filter__widget__title'>Color</div>
 
@@ -142,7 +143,7 @@ const Catalog = () => {
 						</div>
 					</div>
 
-					{/* sizes */}
+					{/* size */}
 					<div className='catalog__filter__widget'>
 						<div className='catalog__filter__widget__title'>Size</div>
 
@@ -173,20 +174,10 @@ const Catalog = () => {
 						</div>
 					</div>
 				</div>
+
 				{/* middle content */}
 				<div className='catalog__content'>
-					<Grid col={3} mdCol={2} smCol={1} gap={20}>
-						{products.map((item, idx) => (
-							<ProductCard
-								key={idx}
-								img01={item.image01}
-								img02={item.image02}
-								name={item.title}
-								price={Number(item.price)}
-								slug={item.slug}
-							></ProductCard>
-						))}
-					</Grid>
+					<InfinityList data={products} />
 				</div>
 			</div>
 		</Helmet>
