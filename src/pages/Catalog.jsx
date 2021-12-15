@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 
 import productData from '../assets/fake-data/products'
 import category from '../assets/fake-data/category'
@@ -18,6 +18,7 @@ const Catalog = () => {
 	}
 
 	const productList = productData.getAllProducts()
+	const filterRef = useRef(null)
 
 	const [products, setProducts] = useState(productList)
 	const [filter, setFilter] = useState(initFilter)
@@ -94,11 +95,19 @@ const Catalog = () => {
 		updateProducts()
 	}, [updateProducts])
 
+	const showHideFilter = () => filterRef.current.classList.toggle('active')
+
 	return (
 		<Helmet title='Catalog'>
 			<div className='catalog'>
 				{/* sidebar */}
-				<div className='catalog__filter'>
+				<div className='catalog__filter' ref={filterRef}>
+					<div
+						className='catalog__filter__close'
+						onClick={() => showHideFilter()}
+					>
+						<div className='bx bx-left-arrow-alt'></div>
+					</div>
 					{/* catalog */}
 					<div className='catalog__filter__widget'>
 						<div className='catalog__filter__widget__title'>Catalog</div>
@@ -173,6 +182,13 @@ const Catalog = () => {
 							</Button>
 						</div>
 					</div>
+				</div>
+
+				{/* add filter button */}
+				<div className='catalog__filter__toggle'>
+					<Button size='sm' onClick={() => showHideFilter()}>
+						Filter
+					</Button>
 				</div>
 
 				{/* middle content */}
