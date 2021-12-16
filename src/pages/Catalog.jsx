@@ -28,18 +28,16 @@ const Catalog = () => {
 		if (checked) {
 			switch (type) {
 				case 'CATEGORY':
-					const newCategory = filter.category.filter(
-						(e) => e !== item.categorySlug
-					)
-					setFilter({ ...filter, category: newCategory })
+					setFilter({
+						...filter,
+						category: [...filter.category, item.categorySlug],
+					})
 					break
 				case 'COLOR':
-					const newColor = filter.color.filter((e) => e !== item.color)
-					setFilter({ ...filter, color: newColor })
+					setFilter({ ...filter, color: [...filter.color, item.color] })
 					break
 				case 'SIZE':
-					const newSize = filter.size.filter((e) => e !== item.size)
-					setFilter({ ...filter, size: newSize })
+					setFilter({ ...filter, size: [...filter.size, item.size] })
 					break
 				default:
 			}
