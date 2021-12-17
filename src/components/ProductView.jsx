@@ -76,7 +76,7 @@ const ProductView = (props) => {
 					<img src={previewImg} alt='' />
 				</div>
 
-				<div className={`product-description ${descriptionExpand && 'expand'}`}>
+				<div className={`product-description mobile ${descriptionExpand && 'expand'}`}>
 					<div className='product-description__title'>Product Detail</div>
 					<div
 						className='product-description__content'
