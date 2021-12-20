@@ -6,7 +6,14 @@ import numberWithCommas from '../utils/numberWithCommas'
 import { withRouter } from 'react-router'
 
 const ProductView = (props) => {
-	const product = props.product
+	let product = props.product
+
+	if (product === undefined) product = {
+    price: 0,
+    title: '',
+    colors: [],
+    size: []
+  }
 
 	const [previewImg, setPreviewImg] = useState(product.image01)
 	const [descriptionExpand, setDescriptionExpand] = useState(false)
@@ -48,7 +55,7 @@ const ProductView = (props) => {
 		if (check()) return console.log({ color, size, quantity })
 	}
 
-  // push the user to the cart page
+	// push the user to the cart page
 	const goToCart = () => {
 		if (check()) props.history.push('/cart')
 	}
@@ -76,7 +83,11 @@ const ProductView = (props) => {
 					<img src={previewImg} alt='' />
 				</div>
 
-				<div className={`product-description mobile ${descriptionExpand && 'expand'}`}>
+				<div
+					className={`product-description mobile ${
+						descriptionExpand && 'expand'
+					}`}
+				>
 					<div className='product-description__title'>Product Detail</div>
 					<div
 						className='product-description__content'
